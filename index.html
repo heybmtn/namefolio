@@ -20,7 +20,7 @@
   }
 
   * { box-sizing: border-box; }
-  html { height: 100%; }
+  html { height: 100%; -webkit-text-size-adjust: 100%; }
 
   body {
     margin: 0;
@@ -30,14 +30,14 @@
     color: var(--ink);
     background: var(--bg);
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: clamp(3rem, 13vh, 10rem) clamp(1.5rem, 6vw, 2.5rem) clamp(4.5rem, 12vh, 9rem);
+    padding: clamp(3rem, 12vh, 10rem) clamp(1.5rem, 6vw, 2.5rem) clamp(4.5rem, 12vh, 9rem);
   }
 
   /* abstract "site plan" backdrop — a portfolio of plots, industry-neutral */
@@ -78,7 +78,7 @@
   }
 
   .mark {
-    font-size: clamp(1.25rem, 2.6vw, 1.5rem);
+    font-size: clamp(1.45rem, 4.5vw, 1.7rem);
     font-weight: 600;
     letter-spacing: 0.01em;
     margin: 0 0 clamp(2.5rem, 8vh, 4rem);
@@ -86,32 +86,32 @@
   .mark .dot { color: var(--periwinkle); }
 
   .pitch {
-    font-size: clamp(1.7rem, 6vw, 2.6rem);
+    font-size: clamp(2.15rem, 8.5vw, 3.1rem);
     font-weight: 600;
-    line-height: 1.22;
-    letter-spacing: -0.02em;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
     max-width: 15ch;
     margin: 0 0 clamp(3rem, 9vh, 4.75rem);
     text-wrap: balance;
   }
 
   .section {
-    font-size: clamp(0.7rem, 1.4vw, 0.8rem);
+    font-size: clamp(0.82rem, 2.2vw, 0.92rem);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.15em;
     color: var(--periwinkle-deep);
-    margin: 0 0 clamp(0.9rem, 2.4vw, 1.25rem);
-    padding-bottom: clamp(0.7rem, 1.6vw, 0.9rem);
+    margin: 0 0 clamp(1rem, 2.6vw, 1.35rem);
+    padding-bottom: clamp(0.75rem, 1.8vw, 0.95rem);
     border-bottom: 1px solid var(--rule);
   }
 
   .body-text {
-    font-size: clamp(0.95rem, 1.8vw, 1.06rem);
-    line-height: 1.7;
-    color: rgba(26, 26, 31, 0.78);
-    max-width: 48ch;
-    margin: 0 0 1.1rem;
+    font-size: clamp(1.1rem, 3.2vw, 1.24rem);
+    line-height: 1.65;
+    color: rgba(26, 26, 31, 0.8);
+    max-width: 44ch;
+    margin: 0 0 1.2rem;
     text-wrap: pretty;
   }
   .body-text:last-child { margin-bottom: 0; }
@@ -125,16 +125,34 @@
   }
   a:hover { color: var(--coral); border-color: var(--coral); }
 
-  @media (max-width: 30rem) {
-    .plan-bg { opacity: 0.85; }
+  /* phones: raise content, give type edge-to-edge room, keep backdrop calm */
+  @media (max-width: 34rem) {
+    body { padding: clamp(2.75rem, 9vh, 4rem) 1.35rem 4rem; }
+    .mark { margin-bottom: 2.25rem; }
+    .pitch {
+      font-size: clamp(2.3rem, 10vw, 3rem);
+      margin-bottom: 2.75rem;
+    }
+    .body-text { max-width: none; }
+    .plan-bg { height: 40vh; }
   }
+
+  /* very small phones */
+  @media (max-width: 22.5rem) {
+    body { padding-left: 1.15rem; padding-right: 1.15rem; }
+    .pitch { font-size: 2.1rem; }
+  }
+
+  /* short / landscape screens: reclaim vertical room */
   @media (max-height: 34rem) {
     body { padding-top: clamp(2rem, 8vh, 3rem); padding-bottom: 3rem; }
     .mark { margin-bottom: 1.75rem; }
     .pitch { margin-bottom: 2.25rem; }
   }
+
+  /* larger screens: a touch more presence */
   @media (min-width: 64rem) {
-    main { max-width: 36rem; }
+    main { max-width: 37rem; }
   }
 </style>
 </head>
@@ -142,7 +160,6 @@
   <div class="plan-bg" aria-hidden="true">
     <svg viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
       <g class="grid">
-        <!-- verticals -->
         <line x1="0"    y1="0" x2="0"    y2="480"/>
         <line x1="120"  y1="0" x2="120"  y2="480"/>
         <line x1="240"  y1="0" x2="240"  y2="480"/>
@@ -154,14 +171,12 @@
         <line x1="960"  y1="0" x2="960"  y2="480"/>
         <line x1="1080" y1="0" x2="1080" y2="480"/>
         <line x1="1200" y1="0" x2="1200" y2="480"/>
-        <!-- horizontals -->
         <line x1="0" y1="480" x2="1200" y2="480"/>
         <line x1="0" y1="360" x2="1200" y2="360"/>
         <line x1="0" y1="240" x2="1200" y2="240"/>
         <line x1="0" y1="120" x2="1200" y2="120"/>
       </g>
       <g>
-        <!-- a few "premium plots" in the portfolio -->
         <rect class="plot" x="240" y="360" width="120" height="120"/>
         <rect class="plot" x="600" y="240" width="240" height="120"/>
         <rect class="plot" x="960" y="360" width="120" height="120"/>
