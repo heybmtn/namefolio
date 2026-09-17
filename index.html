@@ -209,10 +209,144 @@
     transition: color 0.15s ease, border-color 0.15s ease;
   }
   a:hover { color: var(--accent); border-color: var(--accent); }
-  a:focus-visible {
+  a:focus-visible,
+  .enquire-link:focus-visible,
+  .enquire-close:focus-visible,
+  .enquire-submit:focus-visible,
+  .enquire-dialog input:focus-visible,
+  .enquire-dialog textarea:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
   }
+
+  .enquire-link {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-block;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0 0 1px;
+    border: 0;
+    border-bottom: 1px solid var(--accent);
+    background: none;
+    color: var(--accent);
+    font: inherit;
+    line-height: inherit;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .enquire-link:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .enquire-dialog {
+    width: min(28rem, calc(100vw - 2.4rem));
+    max-height: calc(100svh - 2.4rem);
+    margin: auto;
+    padding: 1.5rem 1.45rem 1.35rem;
+    overflow: auto;
+    border: 1px solid rgba(212, 245, 66, 0.55);
+    background: var(--bg);
+    color: var(--ink);
+    box-shadow: 0 0 18px rgba(212, 245, 66, 0.22);
+  }
+  .enquire-dialog::backdrop {
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 40%, rgba(212, 245, 66, 0.08), transparent 55%),
+      rgba(8, 9, 12, 0.78);
+  }
+  .enquire-dialog[open] {
+    animation: enquire-in 180ms ease forwards;
+  }
+  .enquire-dialog[open]::backdrop {
+    animation: enquire-backdrop 180ms ease forwards;
+  }
+  @keyframes enquire-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes enquire-backdrop {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .enquire-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 0 1.15rem;
+  }
+  .enquire-head h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+  .enquire-close {
+    appearance: none;
+    -webkit-appearance: none;
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    margin: -0.3rem -0.35rem 0 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--muted);
+    font: inherit;
+    font-size: 1.45rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .enquire-close:hover { color: var(--ink); }
+
+  .enquire-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .enquire-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .enquire-field label {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .enquire-field input,
+  .enquire-field textarea {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--rule);
+    background: rgba(244, 246, 242, 0.04);
+    color: var(--ink);
+    font: inherit;
+    font-size: 1rem;
+    border-radius: 0;
+  }
+  .enquire-field textarea {
+    min-height: 6.5rem;
+    resize: vertical;
+  }
+  .enquire-submit {
+    appearance: none;
+    -webkit-appearance: none;
+    align-self: flex-start;
+    margin-top: 0.25rem;
+    padding: 0.7rem 1.15rem;
+    border: 0;
+    background: var(--accent);
+    color: var(--bg);
+    font: inherit;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+  }
+  .enquire-submit:hover { filter: brightness(1.06); }
 
   @media (max-width: 34rem) {
     body { padding: clamp(2.75rem, 9vh, 4rem) 1.35rem 4rem; }
@@ -241,8 +375,11 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    a { transition: none; }
+    a,
+    .enquire-link { transition: none; }
     .plot { animation: none; }
+    .enquire-dialog[open],
+    .enquire-dialog[open]::backdrop { animation: none; }
   }
 </style>
 </head>
@@ -282,7 +419,70 @@
     <p class="body-text">Our domains are available through leading aftermarket marketplaces.</p>
 
     <h2 class="enquire">Looking to acquire a domain?</h2>
-    <p class="body-text">Get in touch to discuss available domains and acquisitions.</p>
+    <p class="body-text">Get in touch to discuss available domains and acquisitions. <button type="button" class="enquire-link" aria-haspopup="dialog" aria-controls="enquire-dialog">Enquire</button></p>
   </main>
+
+  <dialog class="enquire-dialog" id="enquire-dialog" aria-labelledby="enquire-title">
+    <div class="enquire-head">
+      <h2 id="enquire-title">Get in touch</h2>
+      <button type="button" class="enquire-close" aria-label="Close">&times;</button>
+    </div>
+    <form class="enquire-form" id="enquire-form">
+      <div class="enquire-field">
+        <label for="enquire-name">Name</label>
+        <input id="enquire-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="enquire-field">
+        <label for="enquire-email">Email</label>
+        <input id="enquire-email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="enquire-field">
+        <label for="enquire-message">Message</label>
+        <textarea id="enquire-message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="enquire-submit">Send</button>
+    </form>
+  </dialog>
+
+  <script>
+    (function () {
+      var dialog = document.getElementById('enquire-dialog');
+      var openBtn = document.querySelector('.enquire-link');
+      var closeBtn = dialog.querySelector('.enquire-close');
+      var form = document.getElementById('enquire-form');
+
+      openBtn.addEventListener('click', function () {
+        dialog.showModal();
+      });
+
+      closeBtn.addEventListener('click', function () {
+        dialog.close();
+      });
+
+      dialog.addEventListener('click', function (event) {
+        var box = dialog.getBoundingClientRect();
+        var inside =
+          event.clientX >= box.left &&
+          event.clientX <= box.right &&
+          event.clientY >= box.top &&
+          event.clientY <= box.bottom;
+        if (!inside) dialog.close();
+      });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var name = document.getElementById('enquire-name').value.trim();
+        var email = document.getElementById('enquire-email').value.trim();
+        var message = document.getElementById('enquire-message').value.trim();
+        if (!name || !email || !message) return;
+
+        var subject = encodeURIComponent('Acquisition enquiry from ' + name);
+        var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+        var href = 'mailto:hello@namefolio.co?subject=' + subject + '&body=' + body;
+        window.location.href = href;
+        dialog.close();
+      });
+    })();
+  </script>
 </body>
 </html>
