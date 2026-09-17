@@ -4,23 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>namefolio.co</title>
-<meta name="description" content="A premium portfolio of brandable .co.uk domains, focused on ecommerce and home services.">
+<meta name="description" content="A portfolio of brandable .co.uk domains.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #ffffff;
-    --ink: #1a1a1f;
-    --muted: rgba(26, 26, 31, 0.55);
-    --rule: rgba(26, 26, 31, 0.12);
-    --periwinkle: #96A9EB;
-    --periwinkle-deep: #5866cc;
-    --coral: #FF6b74;
+    --bg: #08090c;
+    --ink: #f4f6f2;
+    --muted: rgba(244, 246, 242, 0.68);
+    --rule: rgba(244, 246, 242, 0.12);
+    --accent: #d4f542;
   }
 
   * { box-sizing: border-box; }
-  html { height: 100%; -webkit-text-size-adjust: 100%; }
+  html { height: 100%; -webkit-text-size-adjust: 100%; color-scheme: dark; }
 
   body {
     margin: 0;
@@ -28,8 +26,10 @@
     min-height: 100svh;
     overflow-x: hidden;
     color: var(--ink);
-    background: var(--bg);
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background:
+      radial-gradient(ellipse 80% 50% at 85% 110%, rgba(212, 245, 66, 0.08), transparent 55%),
+      var(--bg);
+    font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 17px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -37,10 +37,10 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: clamp(3rem, 12vh, 10rem) clamp(1.5rem, 6vw, 2.5rem) clamp(4.5rem, 12vh, 9rem);
+    padding: clamp(3rem, 10vh, 8rem) clamp(1.75rem, 8vw, 5.5rem) clamp(4.5rem, 12vh, 9rem);
   }
 
-  /* abstract "site plan" backdrop — a portfolio of plots, industry-neutral */
+  /* internet-map backdrop — same plots, dark network-grid treatment */
   .plan-bg {
     position: fixed;
     left: 50%;
@@ -56,61 +56,62 @@
   }
   .plan-bg svg { width: 100%; height: 100%; display: block; }
   .plan-bg .grid line {
-    stroke: #6f7176;
+    stroke: #8b919c;
     stroke-width: 1;
-    stroke-opacity: 0.42;
+    stroke-opacity: 0.18;
     vector-effect: non-scaling-stroke;
   }
   .plan-bg .plot {
-    fill: rgba(150, 169, 235, 0.10);
-    stroke: var(--periwinkle-deep);
+    fill: rgba(212, 245, 66, 0.10);
+    stroke: var(--accent);
     stroke-width: 1.5;
-    stroke-opacity: 0.7;
+    stroke-opacity: 0.55;
     vector-effect: non-scaling-stroke;
+    filter: drop-shadow(0 0 18px rgba(212, 245, 66, 0.22));
   }
 
   main {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 34rem;
-    margin: 0 auto;
+    max-width: 42rem;
+    margin: 0;
   }
 
   .mark {
-    font-size: clamp(1.45rem, 4.5vw, 1.7rem);
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    margin: 0 0 clamp(2.5rem, 8vh, 4rem);
+    font-size: clamp(1.2rem, 3.2vw, 1.35rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin: 0 0 clamp(2.75rem, 9vh, 4.5rem);
   }
-  .mark .dot { color: var(--periwinkle); }
+  .mark .dot { color: var(--accent); }
+  .nowrap { white-space: nowrap; }
 
   .pitch {
-    font-size: clamp(2.15rem, 8.5vw, 3.1rem);
+    font-size: clamp(2.4rem, 7.2vw, 4.15rem);
     font-weight: 600;
-    line-height: 1.18;
-    letter-spacing: -0.025em;
-    max-width: 15ch;
-    margin: 0 0 clamp(3rem, 9vh, 4.75rem);
-    text-wrap: balance;
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+    max-width: 16ch;
+    margin: 0 0 clamp(2.5rem, 7vh, 3.5rem);
+    text-wrap: pretty;
   }
 
-  .section {
-    font-size: clamp(0.82rem, 2.2vw, 0.92rem);
+  .enquire {
+    font-size: clamp(1.2rem, 3vw, 1.45rem);
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--periwinkle-deep);
-    margin: 0 0 clamp(1rem, 2.6vw, 1.35rem);
-    padding-bottom: clamp(0.75rem, 1.8vw, 0.95rem);
-    border-bottom: 1px solid var(--rule);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: clamp(2.5rem, 7vh, 3.5rem) 0 0.85rem;
   }
 
   .body-text {
-    font-size: clamp(1.1rem, 3.2vw, 1.24rem);
-    line-height: 1.65;
-    color: rgba(26, 26, 31, 0.8);
-    max-width: 44ch;
+    font-size: clamp(1.05rem, 2.4vw, 1.18rem);
+    line-height: 1.7;
+    font-weight: 400;
+    color: var(--muted);
+    max-width: 46ch;
     margin: 0 0 1.2rem;
     text-wrap: pretty;
   }
@@ -123,36 +124,32 @@
     padding-bottom: 1px;
     transition: color 0.15s ease, border-color 0.15s ease;
   }
-  a:hover { color: var(--coral); border-color: var(--coral); }
+  a:hover { color: var(--accent); border-color: var(--accent); }
 
-  /* phones: raise content, give type edge-to-edge room, keep backdrop calm */
   @media (max-width: 34rem) {
     body { padding: clamp(2.75rem, 9vh, 4rem) 1.35rem 4rem; }
     .mark { margin-bottom: 2.25rem; }
     .pitch {
-      font-size: clamp(2.3rem, 10vw, 3rem);
+      font-size: clamp(2.35rem, 11vw, 3.1rem);
       margin-bottom: 2.75rem;
     }
     .body-text { max-width: none; }
     .plan-bg { height: 40vh; }
   }
 
-  /* very small phones */
   @media (max-width: 22.5rem) {
     body { padding-left: 1.15rem; padding-right: 1.15rem; }
-    .pitch { font-size: 2.1rem; }
+    .pitch { font-size: 2.15rem; }
   }
 
-  /* short / landscape screens: reclaim vertical room */
   @media (max-height: 34rem) {
     body { padding-top: clamp(2rem, 8vh, 3rem); padding-bottom: 3rem; }
     .mark { margin-bottom: 1.75rem; }
     .pitch { margin-bottom: 2.25rem; }
   }
 
-  /* larger screens: a touch more presence */
   @media (min-width: 64rem) {
-    main { max-width: 37rem; }
+    main { max-width: 44rem; }
   }
 </style>
 </head>
@@ -185,13 +182,14 @@
   </div>
 
   <main>
-    <h1 class="mark">namefolio<span class="dot">.</span></h1>
+    <h1 class="mark">Namefolio<span class="dot">.</span></h1>
 
-    <p class="pitch">Domains you can build a business on.</p>
+    <p class="pitch">A portfolio of <span class="nowrap">brandable .co.uk</span> domains.</p>
 
-    <h2 class="section">Domains for Sale</h2>
-    <p class="body-text">Namefolio manages a premium portfolio of brandable .co.uk domains, focused on ecommerce and home services.</p>
-    <p class="body-text">Explore our domains for sale across leading aftermarket marketplaces.</p>
+    <p class="body-text">Our domains are available through leading aftermarket marketplaces.</p>
+
+    <h2 class="enquire">Looking to acquire a domain?</h2>
+    <p class="body-text">Get in touch to discuss available domains and acquisitions.</p>
   </main>
 </body>
 </html>
