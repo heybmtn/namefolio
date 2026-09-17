@@ -128,6 +128,30 @@
     stroke-opacity: 0.55;
     vector-effect: non-scaling-stroke;
     filter: drop-shadow(0 0 18px rgba(212, 245, 66, 0.22));
+    transform-box: fill-box;
+    transform-origin: 0 0;
+  }
+  .plot-a { animation: drift-a 18s ease-in-out infinite; }
+  .plot-b { animation: drift-b 24s ease-in-out infinite; }
+  .plot-c { animation: drift-c 30s ease-in-out infinite; }
+
+  @keyframes drift-a {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(100%, 0); }
+    50% { transform: translate(100%, -100%); }
+    75% { transform: translate(0, -100%); }
+  }
+  @keyframes drift-b {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 100%); }
+    75% { transform: translate(0, 100%); }
+  }
+  @keyframes drift-c {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-100%, 0); }
+    50% { transform: translate(-100%, -100%); }
+    75% { transform: translate(0, -100%); }
   }
 
   main {
@@ -218,6 +242,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     a { transition: none; }
+    .plot { animation: none; }
   }
 </style>
 </head>
@@ -242,9 +267,9 @@
         <line x1="0" y1="120" x2="1200" y2="120"/>
       </g>
       <g>
-        <rect class="plot" x="240" y="360" width="120" height="120"/>
-        <rect class="plot" x="600" y="240" width="240" height="120"/>
-        <rect class="plot" x="960" y="360" width="120" height="120"/>
+        <rect class="plot plot-a" x="240" y="360" width="120" height="120"/>
+        <rect class="plot plot-b" x="600" y="240" width="240" height="120"/>
+        <rect class="plot plot-c" x="960" y="360" width="120" height="120"/>
       </g>
     </svg>
   </div>
