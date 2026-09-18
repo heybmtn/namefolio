@@ -217,6 +217,8 @@
     margin: clamp(2rem, 5vh, 2.75rem) 0 0.85rem;
   }
 
+  .listings { display: none; }
+
   .pair {
     display: grid;
     gap: 1.75rem 2.5rem;
@@ -417,18 +419,11 @@
   }
   .enquire-submit:hover { filter: brightness(1.06); }
 
-  @media (max-width: 40rem) {
-    .plan-bg { display: none; }
-    footer.contact::before { content: none; display: none; }
-    footer.contact { padding: 1.5rem 0 0.25rem; }
-    footer.contact .body-text { max-width: none; }
-    body { padding-bottom: 3rem; }
-  }
-
   @media (max-width: 34rem) {
-    body { padding: clamp(2.75rem, 9vh, 4rem) 1.35rem 3rem; }
+    body { padding: clamp(2.75rem, 9vh, 4rem) 1.35rem 4.5rem; }
     .mark { margin-bottom: 1.75rem; }
     .body-text { max-width: none; }
+    footer.contact .body-text { max-width: 36ch; }
   }
 
   @media (max-width: 22.5rem) {
@@ -490,20 +485,22 @@
     <h1 class="pitch">Carefully selected <span class="nowrap">.co.uk</span> domains</h1>
     <p class="body-text">We acquire and hold brandable and commercially relevant .co.uk domain names with potential for businesses, brands and investors.</p>
 
-    <h2 class="section">Current domains</h2>
-    <div class="pair">
-      <section>
-        <p class="listing-name">prototypeservices.co.uk</p>
-        <p class="listing-cat">Commercial / B2B</p>
-        <p class="listing-desc">A relevant name for a business operating in prototyping, product development, engineering or manufacturing.</p>
-        <p class="listing-status">Available</p>
-      </section>
-      <section>
-        <p class="listing-name">miniatureshop.co.uk</p>
-        <p class="listing-cat">E-commerce / Retail</p>
-        <p class="listing-desc">A clear, memorable name suited to a specialist online retailer selling miniatures, models or collectibles.</p>
-        <p class="listing-status">Available</p>
-      </section>
+    <div class="listings">
+      <h2 class="section">Current domains</h2>
+      <div class="pair">
+        <section>
+          <p class="listing-name">prototypeservices.co.uk</p>
+          <p class="listing-cat">Commercial / B2B</p>
+          <p class="listing-desc">A relevant name for a business operating in prototyping, product development, engineering or manufacturing.</p>
+          <p class="listing-status">Available</p>
+        </section>
+        <section>
+          <p class="listing-name">miniatureshop.co.uk</p>
+          <p class="listing-cat">E-commerce / Retail</p>
+          <p class="listing-desc">A clear, memorable name suited to a specialist online retailer selling miniatures, models or collectibles.</p>
+          <p class="listing-status">Available</p>
+        </section>
+      </div>
     </div>
   </main>
 
