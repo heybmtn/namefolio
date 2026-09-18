@@ -296,6 +296,20 @@
     border-color: var(--ink);
   }
 
+  .contact-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+  }
+
+  .llms-link {
+    font-size: 0.9rem;
+    color: var(--muted);
+    border-color: var(--rule);
+  }
+
   .enquire-dialog {
     width: min(28rem, calc(100vw - 2.4rem));
     max-height: calc(100svh - 2.4rem);
@@ -492,7 +506,10 @@
   <footer class="contact">
     <h2 class="section">Get in touch</h2>
     <p class="body-text">Interested in acquiring a domain, selling a domain, or discussing a potential investment opportunity?</p>
-    <button type="button" class="enquire-link" aria-haspopup="dialog" aria-controls="enquire-dialog">Get in touch →</button>
+    <div class="contact-row">
+      <button type="button" class="enquire-link" aria-haspopup="dialog" aria-controls="enquire-dialog">Get in touch →</button>
+      <a class="llms-link" href="/llms.txt">llms.txt</a>
+    </div>
   </footer>
 
   <dialog class="enquire-dialog" id="enquire-dialog" aria-labelledby="enquire-title">
