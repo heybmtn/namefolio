@@ -175,11 +175,12 @@
     position: absolute;
     z-index: -1;
     pointer-events: none;
-    inset: -0.75rem -1.25rem -1.1rem -1.5rem;
+    inset: -0.85rem -1.25rem -1.25rem -1.5rem;
     background: linear-gradient(
       to top,
-      rgba(8, 9, 12, 0.88) 0%,
-      rgba(8, 9, 12, 0.5) 55%,
+      rgba(8, 9, 12, 0.9) 0%,
+      rgba(8, 9, 12, 0.58) 52%,
+      rgba(8, 9, 12, 0.22) 82%,
       transparent 100%
     );
   }
@@ -419,8 +420,18 @@
     body { padding: clamp(2.75rem, 9vh, 4rem) 1.35rem 5rem; }
     .mark { margin-bottom: 1.75rem; }
     .body-text { max-width: none; }
-    footer.contact { padding-bottom: 1.6rem; }
-    footer.contact .body-text { max-width: 36ch; }
+    footer.contact { padding-top: 0.85rem; padding-bottom: 1.75rem; }
+    footer.contact .body-text { max-width: 16rem; }
+    footer.contact::before {
+      inset: -0.45rem -0.65rem -1.75rem -0.85rem;
+      background: linear-gradient(
+        to top,
+        rgba(8, 9, 12, 0.96) 0%,
+        rgba(8, 9, 12, 0.84) 40%,
+        rgba(8, 9, 12, 0.45) 72%,
+        transparent 100%
+      );
+    }
     .plan-bg { height: 40vh; }
   }
 
