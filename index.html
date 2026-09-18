@@ -417,23 +417,18 @@
   }
   .enquire-submit:hover { filter: brightness(1.06); }
 
+  @media (max-width: 40rem) {
+    .plan-bg { display: none; }
+    footer.contact::before { content: none; display: none; }
+    footer.contact { padding: 1.5rem 0 0.25rem; }
+    footer.contact .body-text { max-width: none; }
+    body { padding-bottom: 3rem; }
+  }
+
   @media (max-width: 34rem) {
-    body { padding: clamp(2.75rem, 9vh, 4rem) 1.35rem 5rem; }
+    body { padding: clamp(2.75rem, 9vh, 4rem) 1.35rem 3rem; }
     .mark { margin-bottom: 1.75rem; }
     .body-text { max-width: none; }
-    footer.contact { padding-top: 0.85rem; padding-bottom: 1.75rem; }
-    footer.contact .body-text { max-width: 16rem; }
-    footer.contact::before {
-      inset: -0.45rem -0.65rem -1.75rem -0.85rem;
-      background: linear-gradient(
-        to top,
-        rgba(8, 9, 12, 0.96) 0%,
-        rgba(8, 9, 12, 0.84) 40%,
-        rgba(8, 9, 12, 0.45) 72%,
-        transparent 100%
-      );
-    }
-    .plan-bg { position: absolute; height: 40vh; }
   }
 
   @media (max-width: 22.5rem) {
