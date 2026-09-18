@@ -157,9 +157,35 @@
   main {
     position: relative;
     z-index: 1;
+    flex: 1;
     width: 100%;
     max-width: 54rem;
     margin: 0;
+  }
+
+  footer.contact {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 54rem;
+    padding: 0.5rem 0 0.75rem;
+  }
+  footer.contact::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    inset: -0.85rem -1.25rem -1.25rem -1.5rem;
+    background: linear-gradient(
+      to top,
+      rgba(8, 9, 12, 0.9) 0%,
+      rgba(8, 9, 12, 0.58) 52%,
+      rgba(8, 9, 12, 0.22) 82%,
+      transparent 100%
+    );
+  }
+  footer.contact .section {
+    margin-top: 0;
   }
 
   .mark {
@@ -237,7 +263,10 @@
     margin: 0 0 1.2rem;
     text-wrap: pretty;
   }
-  .contact .body-text { margin-bottom: 0.85rem; }
+  footer.contact .body-text {
+    max-width: 40ch;
+    margin-bottom: 0.85rem;
+  }
 
   a {
     color: var(--ink);
@@ -388,9 +417,21 @@
   .enquire-submit:hover { filter: brightness(1.06); }
 
   @media (max-width: 34rem) {
-    body { padding: clamp(2.75rem, 9vh, 4rem) 1.35rem 4rem; }
+    body { padding: clamp(2.75rem, 9vh, 4rem) 1.35rem 5rem; }
     .mark { margin-bottom: 1.75rem; }
     .body-text { max-width: none; }
+    footer.contact { padding-top: 0.85rem; padding-bottom: 1.75rem; }
+    footer.contact .body-text { max-width: 16rem; }
+    footer.contact::before {
+      inset: -0.45rem -0.65rem -1.75rem -0.85rem;
+      background: linear-gradient(
+        to top,
+        rgba(8, 9, 12, 0.96) 0%,
+        rgba(8, 9, 12, 0.84) 40%,
+        rgba(8, 9, 12, 0.45) 72%,
+        transparent 100%
+      );
+    }
     .plan-bg { height: 40vh; }
   }
 
@@ -406,7 +447,8 @@
   }
 
   @media (min-width: 64rem) {
-    main { max-width: 56rem; }
+    main,
+    footer.contact { max-width: 56rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -467,13 +509,13 @@
         <p class="listing-status">Available</p>
       </section>
     </div>
-
-    <section class="contact">
-      <h2 class="section">Get in touch</h2>
-      <p class="body-text">Interested in acquiring a domain, selling a domain, or discussing a potential investment opportunity?</p>
-      <button type="button" class="enquire-link" aria-haspopup="dialog" aria-controls="enquire-dialog">Get in touch →</button>
-    </section>
   </main>
+
+  <footer class="contact">
+    <h2 class="section">Get in touch</h2>
+    <p class="body-text">Interested in acquiring a domain, selling a domain, or discussing a potential investment opportunity?</p>
+    <button type="button" class="enquire-link" aria-haspopup="dialog" aria-controls="enquire-dialog">Get in touch →</button>
+  </footer>
 
   <dialog class="enquire-dialog" id="enquire-dialog" aria-labelledby="enquire-title">
     <div class="enquire-head">
