@@ -296,16 +296,12 @@
     border-color: var(--ink);
   }
 
-  .contact-row {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.5rem;
-  }
-
   .llms-link {
-    font-size: 0.9rem;
+    position: fixed;
+    right: clamp(1.25rem, 6vw, 3rem);
+    bottom: clamp(1.1rem, 3.5vh, 1.75rem);
+    z-index: 1;
+    font-size: 0.85rem;
     color: var(--muted);
     border-color: var(--rule);
   }
@@ -434,6 +430,7 @@
     :root { --plan-h: clamp(96px, 26vh, 200px); }
     body { padding-top: clamp(2rem, 8vh, 3rem); padding-bottom: var(--plan-h); }
     .mark { margin-bottom: 1.35rem; }
+    .llms-link { display: none; }
   }
 
   @media (min-width: 64rem) {
@@ -506,11 +503,10 @@
   <footer class="contact">
     <h2 class="section">Get in touch</h2>
     <p class="body-text">Interested in acquiring a domain, selling a domain, or discussing a potential investment opportunity?</p>
-    <div class="contact-row">
-      <button type="button" class="enquire-link" aria-haspopup="dialog" aria-controls="enquire-dialog">Get in touch →</button>
-      <a class="llms-link" href="/llms.txt">llms.txt</a>
-    </div>
+    <button type="button" class="enquire-link" aria-haspopup="dialog" aria-controls="enquire-dialog">Get in touch →</button>
   </footer>
+
+  <a class="llms-link" href="/llms.txt">llms.txt</a>
 
   <dialog class="enquire-dialog" id="enquire-dialog" aria-labelledby="enquire-title">
     <div class="enquire-head">
