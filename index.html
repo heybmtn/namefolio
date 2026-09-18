@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Namefolio | Brandable .co.uk domains</title>
-<meta name="description" content="We invest in brandable, commercially relevant .co.uk domains. Acquire premium names, sell via marketplaces and outbound, or discuss investment opportunities.">
+<meta name="description" content="We invest in brandable, commercially relevant .co.uk domains with strong potential as digital assets. Buy, sell, or discuss investment opportunities.">
 <meta name="robots" content="index, follow">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#08090c">
@@ -17,14 +17,14 @@
 <meta property="og:site_name" content="Namefolio">
 <meta property="og:url" content="https://namefolio.co/">
 <meta property="og:title" content="Namefolio | Brandable .co.uk domains">
-<meta property="og:description" content="We invest in brandable, commercially relevant .co.uk domains. Acquire, sell, or discuss investment opportunities.">
+<meta property="og:description" content="We invest in brandable, commercially relevant .co.uk domains. Buy, sell, or discuss investment opportunities.">
 <meta property="og:image" content="https://namefolio.co/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Namefolio — brandable, commercially relevant .co.uk domains">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Namefolio | Brandable .co.uk domains">
-<meta name="twitter:description" content="We invest in brandable, commercially relevant .co.uk domains. Acquire, sell, or discuss investment opportunities.">
+<meta name="twitter:description" content="We invest in brandable, commercially relevant .co.uk domains. Buy, sell, or discuss investment opportunities.">
 <meta name="twitter:image" content="https://namefolio.co/og.png">
 <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
       "@id": "https://namefolio.co/#webpage",
       "url": "https://namefolio.co/",
       "name": "Namefolio | Brandable .co.uk domains",
-      "description": "We invest in brandable, commercially relevant .co.uk domains. Acquire premium names, sell via marketplaces and outbound, or discuss investment opportunities.",
+      "description": "We invest in brandable, commercially relevant .co.uk domains. Buy, sell, or discuss investment opportunities.",
       "isPartOf": { "@id": "https://namefolio.co/#website" },
       "about": { "@id": "https://namefolio.co/#organization" },
       "inLanguage": "en-GB"
@@ -158,7 +158,7 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 42rem;
+    max-width: 54rem;
     margin: 0;
   }
 
@@ -187,7 +187,20 @@
     line-height: 1.25;
     letter-spacing: -0.02em;
     color: var(--ink);
-    margin: clamp(2.5rem, 7vh, 3.5rem) 0 0.85rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .pair {
+    display: grid;
+    gap: 1.75rem 2.5rem;
+    margin: clamp(1.75rem, 5vh, 2.5rem) 0 0;
+  }
+  .pair .body-text {
+    max-width: none;
+    margin-bottom: 0;
+  }
+  @media (min-width: 40rem) {
+    .pair { grid-template-columns: 1fr 1fr; }
   }
 
   .body-text {
@@ -199,8 +212,8 @@
     margin: 0 0 1.2rem;
     text-wrap: pretty;
   }
-  .body-text:last-child {
-    margin-top: clamp(1.5rem, 4vh, 2.5rem);
+  main > .body-text:last-child {
+    margin-top: clamp(1.25rem, 3vh, 1.75rem);
     margin-bottom: 0;
   }
 
@@ -375,7 +388,7 @@
   }
 
   @media (min-width: 64rem) {
-    main { max-width: 44rem; }
+    main { max-width: 56rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -420,15 +433,20 @@
 
     <h1 class="pitch">A portfolio of <span class="nowrap">brandable .co.uk</span> domains.</h1>
 
-    <p class="body-text">We invest in brandable, commercially relevant .co.uk domains with the potential to become valuable digital assets. Some are listed on leading aftermarket marketplaces; others are retained for development and e-commerce.</p>
+    <p class="body-text">We invest in brandable, commercially relevant .co.uk domains with strong potential as digital assets.</p>
 
-    <h2 class="enquire">Looking to acquire?</h2>
-    <p class="body-text">We provide access to premium names for businesses, brands and investors.</p>
+    <div class="pair">
+      <section>
+        <h2 class="enquire">Looking to acquire?</h2>
+        <p class="body-text">We offer businesses, brands and investors access to premium names.</p>
+      </section>
+      <section>
+        <h2 class="enquire">Looking to sell?</h2>
+        <p class="body-text">We drive exposure through marketplace listings and targeted outbound campaigns.</p>
+      </section>
+    </div>
 
-    <h2 class="enquire">Looking to sell?</h2>
-    <p class="body-text">We support both marketplace sales and targeted outbound campaigns to maximise exposure to relevant buyers.</p>
-
-    <p class="body-text">To acquire, sell or discuss domain investment opportunities, <button type="button" class="enquire-link" aria-haspopup="dialog" aria-controls="enquire-dialog">drop us a message</button>.</p>
+    <p class="body-text">To buy, sell or discuss domain investment opportunities, <button type="button" class="enquire-link" aria-haspopup="dialog" aria-controls="enquire-dialog">get in touch</button>.</p>
   </main>
 
   <dialog class="enquire-dialog" id="enquire-dialog" aria-labelledby="enquire-title">
