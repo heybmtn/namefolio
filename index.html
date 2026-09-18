@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Namefolio | Brandable .co.uk domains</title>
-<meta name="description" content="We invest in brandable &amp; commercially relevant .co.uk domains with strong potential as digital assets. Whether you're looking to acquire a domain or sell one, we can help.">
+<title>Namefolio | Carefully selected .co.uk domains</title>
+<meta name="description" content="Carefully selected .co.uk domains. We acquire and hold brandable and commercially relevant names with potential for businesses, brands and investors.">
 <meta name="robots" content="index, follow">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#08090c">
@@ -16,15 +16,15 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Namefolio">
 <meta property="og:url" content="https://namefolio.co/">
-<meta property="og:title" content="Namefolio | Brandable .co.uk domains">
-<meta property="og:description" content="We invest in brandable &amp; commercially relevant .co.uk domains. Acquire or sell — we can help.">
+<meta property="og:title" content="Namefolio | Carefully selected .co.uk domains">
+<meta property="og:description" content="We acquire and hold brandable and commercially relevant .co.uk domain names with potential for businesses, brands and investors.">
 <meta property="og:image" content="https://namefolio.co/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Namefolio — brandable &amp; commercially relevant .co.uk domains">
+<meta property="og:image:alt" content="Namefolio — carefully selected .co.uk domains">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Namefolio | Brandable .co.uk domains">
-<meta name="twitter:description" content="We invest in brandable &amp; commercially relevant .co.uk domains. Acquire or sell — we can help.">
+<meta name="twitter:title" content="Namefolio | Carefully selected .co.uk domains">
+<meta name="twitter:description" content="We acquire and hold brandable and commercially relevant .co.uk domain names with potential for businesses, brands and investors.">
 <meta name="twitter:image" content="https://namefolio.co/og.png">
 <script type="application/ld+json">
 {
@@ -35,7 +35,7 @@
       "@id": "https://namefolio.co/#website",
       "url": "https://namefolio.co/",
       "name": "Namefolio",
-      "description": "We invest in brandable & commercially relevant .co.uk domains.",
+      "description": "Carefully selected .co.uk domains.",
       "inLanguage": "en-GB",
       "publisher": { "@id": "https://namefolio.co/#organization" }
     },
@@ -50,8 +50,8 @@
       "@type": "WebPage",
       "@id": "https://namefolio.co/#webpage",
       "url": "https://namefolio.co/",
-      "name": "Namefolio | Brandable .co.uk domains",
-      "description": "We invest in brandable & commercially relevant .co.uk domains with strong potential as digital assets. Whether you're looking to acquire a domain or sell one, we can help.",
+      "name": "Namefolio | Carefully selected .co.uk domains",
+      "description": "We acquire and hold brandable and commercially relevant .co.uk domain names with potential for businesses, brands and investors.",
       "isPartOf": { "@id": "https://namefolio.co/#website" },
       "about": { "@id": "https://namefolio.co/#organization" },
       "inLanguage": "en-GB"
@@ -170,18 +170,37 @@
     margin: 0 0 clamp(1.75rem, 5vh, 2.75rem);
   }
   .mark .dot { color: var(--accent); }
+  .nowrap { white-space: nowrap; }
+
+  .pitch {
+    font-size: clamp(1.65rem, 4.5vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin: 0 0 0.85rem;
+    text-wrap: pretty;
+  }
+
+  .section {
+    font-size: clamp(1.15rem, 2.8vw, 1.35rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: clamp(2rem, 5vh, 2.75rem) 0 0.85rem;
+  }
 
   .pair {
     display: grid;
-    gap: 1.5rem 2.5rem;
-    margin: clamp(1.5rem, 4vh, 2.25rem) 0 0;
+    gap: 1.75rem 2.5rem;
+    margin: 0;
   }
   @media (min-width: 40rem) {
     .pair { grid-template-columns: 1fr 1fr; }
   }
 
   .listing-name {
-    margin: 0 0 0.3rem;
+    margin: 0 0 0.25rem;
     font-size: clamp(1.05rem, 2.3vw, 1.2rem);
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -189,11 +208,24 @@
     color: var(--ink);
     white-space: nowrap;
   }
-  .listing-label {
-    margin: 0;
+  .listing-cat {
+    margin: 0 0 0.55rem;
     font-size: 0.92rem;
-    line-height: 1.45;
+    line-height: 1.4;
     color: var(--muted);
+  }
+  .listing-desc {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+  .listing-status {
+    margin: 0.7rem 0 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent);
   }
 
   .body-text {
@@ -205,10 +237,7 @@
     margin: 0 0 1.2rem;
     text-wrap: pretty;
   }
-  main > .body-text:last-child {
-    margin-top: clamp(1.25rem, 3vh, 1.75rem);
-    margin-bottom: 0;
-  }
+  .contact .body-text { margin-bottom: 0.85rem; }
 
   a {
     color: var(--ink);
@@ -418,22 +447,32 @@
   </div>
 
   <main>
-    <h1 class="mark">Namefolio<span class="dot">.</span></h1>
-    <p class="body-text">We invest in brandable &amp; commercially relevant .co.uk domains with strong potential as digital assets.</p>
-    <p class="body-text">Whether you're looking to acquire a domain or sell one, we can help.</p>
+    <p class="mark">Namefolio<span class="dot">.</span></p>
 
+    <h1 class="pitch">Carefully selected <span class="nowrap">.co.uk</span> domains</h1>
+    <p class="body-text">We acquire and hold brandable and commercially relevant .co.uk domain names with potential for businesses, brands and investors.</p>
+
+    <h2 class="section">Current domains</h2>
     <div class="pair">
       <section>
         <p class="listing-name">prototypeservices.co.uk</p>
-        <p class="listing-label">commercial intent, in development</p>
+        <p class="listing-cat">Commercial / B2B</p>
+        <p class="listing-desc">A relevant name for a business operating in prototyping, product development, engineering or manufacturing.</p>
+        <p class="listing-status">Available</p>
       </section>
       <section>
         <p class="listing-name">miniatureshop.co.uk</p>
-        <p class="listing-label">e-commerce name, for sale</p>
+        <p class="listing-cat">E-commerce / Retail</p>
+        <p class="listing-desc">A clear, memorable name suited to a specialist online retailer selling miniatures, models or collectibles.</p>
+        <p class="listing-status">Available</p>
       </section>
     </div>
 
-    <p class="body-text">To buy, sell, or discuss domain investment opportunities, <button type="button" class="enquire-link" aria-haspopup="dialog" aria-controls="enquire-dialog">drop us a message</button>.</p>
+    <section class="contact">
+      <h2 class="section">Get in touch</h2>
+      <p class="body-text">Interested in acquiring a domain, selling a domain, or discussing a potential investment opportunity?</p>
+      <button type="button" class="enquire-link" aria-haspopup="dialog" aria-controls="enquire-dialog">Get in touch →</button>
+    </section>
   </main>
 
   <dialog class="enquire-dialog" id="enquire-dialog" aria-labelledby="enquire-title">
