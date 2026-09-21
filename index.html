@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Namefolio | Really good .co.uk domains</title>
 <meta name="description" content="We buy and sell really good .co.uk assets. Buy a specific name or get dedicated outbound sales support for your own portfolio.">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,9 @@
 <link rel="canonical" href="https://namefolio.co/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" href="/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <meta property="og:locale" content="en_GB">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Namefolio">
@@ -60,315 +62,329 @@
 }
 </script>
 <style>
-  @font-face {
-    font-family: 'Instrument Sans';
-    font-style: normal;
-    font-weight: 400 600;
-    font-stretch: 100%;
-    font-display: optional;
-    src: url('/fonts/instrument-sans.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-
   :root {
+    /* Namefolio palette — unchanged */
     --bg: #08090c;
     --ink: #f4f6f2;
     --muted: #c8cac5;
     --rule: rgba(244, 246, 242, 0.12);
+    --rule-soft: rgba(244, 246, 242, 0.07);
     --accent: #d4f542;
-    --plan-h: clamp(220px, 46vh, 540px);
+    --display: 'Archivo', 'Arial Narrow', Impact, sans-serif;
+    --body: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --edge: clamp(1.15rem, 5vw, 3.25rem);
   }
 
   * { box-sizing: border-box; }
-  html { height: 100%; -webkit-text-size-adjust: 100%; color-scheme: dark; }
+  html { height: 100%; -webkit-text-size-adjust: 100%; color-scheme: dark; scroll-padding-top: env(safe-area-inset-top, 0px); }
 
   body {
     margin: 0;
-    min-height: 100vh;
     min-height: 100svh;
     overflow-x: hidden;
     color: var(--ink);
-    background:
-      radial-gradient(ellipse 80% 50% at 85% 110%, rgba(212, 245, 66, 0.08), transparent 55%),
-      var(--bg);
-    font-family: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    font-family: var(--body);
     font-size: 17px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: clamp(3rem, 10vh, 8rem) clamp(1.75rem, 8vw, 5.5rem) var(--plan-h);
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
-  .plan-bg {
+  /* faint brand glow, a quiet nod to the old plots motif */
+  body::after {
+    content: "";
     position: fixed;
     left: 50%;
-    bottom: 0;
-    width: 100%;
-    max-width: 1600px;
-    height: var(--plan-h);
+    bottom: -20vh;
+    width: 120vw;
+    height: 55vh;
     transform: translateX(-50%);
+    background: radial-gradient(ellipse 50% 100% at 50% 100%, rgba(212, 245, 66, 0.08), transparent 70%);
     pointer-events: none;
     z-index: 0;
-    -webkit-mask-image: linear-gradient(to top, #000 0%, #000 22%, transparent 96%);
-    mask-image: linear-gradient(to top, #000 0%, #000 22%, transparent 96%);
-  }
-  .plan-bg svg { width: 100%; height: 100%; display: block; }
-  .plan-bg .grid line {
-    stroke: #8b919c;
-    stroke-width: 1;
-    stroke-opacity: 0.18;
-    vector-effect: non-scaling-stroke;
-  }
-  .plan-bg .plot {
-    fill: rgba(212, 245, 66, 0.10);
-    stroke: var(--accent);
-    stroke-width: 1.5;
-    stroke-opacity: 0.55;
-    vector-effect: non-scaling-stroke;
-    filter: drop-shadow(0 0 18px rgba(212, 245, 66, 0.22));
-    transform-box: fill-box;
-    transform-origin: 0 0;
-  }
-  .plot-a { animation: drift-a 18s ease-in-out infinite; }
-  .plot-b { animation: drift-b 24s ease-in-out infinite; }
-  .plot-c { animation: drift-c 30s ease-in-out infinite; }
-
-  @keyframes drift-a {
-    0%, 100% { transform: translate(0, 0); }
-    25% { transform: translate(100%, 0); }
-    50% { transform: translate(100%, -100%); }
-    75% { transform: translate(0, -100%); }
-  }
-  @keyframes drift-b {
-    0%, 100% { transform: translate(0, 0); }
-    25% { transform: translate(-50%, 0); }
-    50% { transform: translate(-50%, 100%); }
-    75% { transform: translate(0, 100%); }
-  }
-  @keyframes drift-c {
-    0%, 100% { transform: translate(0, 0); }
-    25% { transform: translate(-100%, 0); }
-    50% { transform: translate(-100%, -100%); }
-    75% { transform: translate(0, -100%); }
   }
 
-  main {
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent); color: var(--bg); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem var(--edge);
+    padding-top: calc(1.1rem + env(safe-area-inset-top, 0px));
+    background: linear-gradient(to bottom, var(--bg) 55%, transparent);
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    font-stretch: 125%;
+  }
+  .wordmark .dot { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: clamp(1.1rem, 4vw, 2.25rem);
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .nav-links a,
+  .nav-links button {
+    font: inherit;
+    color: var(--muted);
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.15s ease;
+  }
+  .nav-links a:hover,
+  .nav-links button:hover { color: var(--ink); }
+
+  /* ---------- Hero ---------- */
+  .hero {
     position: relative;
     z-index: 1;
-    width: 100%;
-    max-width: 54rem;
-    margin: 0;
+    padding: clamp(3rem, 12vh, 8rem) var(--edge) clamp(2.5rem, 8vh, 5rem);
+    text-align: center;
   }
+  .statement {
+    margin: 0 auto;
+    font-family: var(--display);
+    font-weight: 800;
+    font-stretch: 125%;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+    line-height: 0.88;
+    font-size: clamp(3.1rem, 13.5vw, 12rem);
+  }
+  .statement .line { display: block; overflow: hidden; }
+  .statement .line > span {
+    display: block;
+    transform: translateY(105%);
+    animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .statement .line:nth-child(1) > span { animation-delay: 0.05s; }
+  .statement .line:nth-child(2) > span { animation-delay: 0.14s; }
+  .statement .line:nth-child(3) > span { animation-delay: 0.23s; }
+  .statement .dot { color: var(--accent); }
+  @keyframes rise { to { transform: translateY(0); } }
 
-  .mark {
-    font-size: clamp(2.4rem, 6.5vw, 3.6rem);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-    margin: 0 0 clamp(1.75rem, 5vh, 2.75rem);
-  }
-  .dot { color: var(--accent); }
-  .nowrap { white-space: nowrap; }
-
-  .pitch {
-    font-size: clamp(1.65rem, 4.5vw, 2.2rem);
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.03em;
-    margin: 0 0 1.2rem;
-    text-wrap: pretty;
-  }
-
-  .section {
-    font-size: clamp(1.15rem, 2.8vw, 1.35rem);
-    font-weight: 600;
-    line-height: 1.25;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin: clamp(2rem, 5vh, 2.75rem) 0 0.85rem;
-  }
-
-  .listings { display: none; }
-
-  .pair {
-    display: grid;
-    gap: 1.75rem 2.5rem;
-    margin: 0;
-  }
-  @media (min-width: 40rem) {
-    .pair { grid-template-columns: 1fr 1fr; }
-  }
-
-  .listing-name {
-    margin: 0 0 0.25rem;
-    font-size: clamp(1.05rem, 2.3vw, 1.2rem);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
-    color: var(--ink);
-    white-space: nowrap;
-  }
-  .listing-cat {
-    margin: 0 0 0.55rem;
-    font-size: 0.92rem;
-    line-height: 1.4;
+  .hero-sub {
+    margin: clamp(1.75rem, 4vh, 2.5rem) auto 0;
+    max-width: 46ch;
     color: var(--muted);
-  }
-  .listing-desc {
-    margin: 0;
-    font-size: 0.98rem;
-    line-height: 1.55;
-    color: var(--muted);
+    font-size: clamp(1.02rem, 2.2vw, 1.2rem);
+    line-height: 1.6;
     text-wrap: pretty;
+    opacity: 0;
+    animation: fade 0.7s ease 0.5s forwards;
   }
-  .listing-status {
-    margin: 0.7rem 0 0;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--accent);
-  }
+  @keyframes fade { to { opacity: 1; } }
 
-  .body-text {
-    font-size: clamp(1.05rem, 2.4vw, 1.18rem);
-    line-height: 1.7;
-    font-weight: 400;
-    color: var(--muted);
-    max-width: 52ch;
-    margin: 0 0 1.2rem;
-    text-wrap: pretty;
-  }
-
-  a {
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 1px;
-    transition: color 0.15s ease, border-color 0.15s ease;
-  }
-  a:hover { color: var(--accent); border-color: var(--accent); }
-  a:focus-visible,
-  .enquire-link:focus-visible,
-  .enquire-close:focus-visible,
-  .enquire-submit:focus-visible,
-  .enquire-dialog input:focus-visible,
-  .enquire-dialog textarea:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-  }
-
-  .enquire-link {
-    appearance: none;
-    -webkit-appearance: none;
+  .cta {
     display: inline-block;
-    vertical-align: baseline;
-    margin: 0;
-    padding: 0 0 1px;
+    margin-top: clamp(1.5rem, 4vh, 2.25rem);
+    padding: 0.85rem 1.6rem;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
     border: 0;
-    border-bottom: 1px solid var(--accent);
-    background: none;
-    color: var(--accent);
-    font: inherit;
-    line-height: inherit;
     cursor: pointer;
-    white-space: nowrap;
-    transition: color 0.15s ease, border-color 0.15s ease;
+    opacity: 0;
+    animation: fade 0.7s ease 0.62s forwards;
+    transition: filter 0.15s ease, transform 0.15s ease;
   }
-  .enquire-link:hover {
-    color: var(--ink);
-    border-color: var(--ink);
-  }
+  .cta:hover { filter: brightness(1.08); }
+  .cta:active { transform: translateY(1px); }
 
-  .llms-link {
-    position: fixed;
-    right: clamp(1.25rem, 6vw, 3rem);
-    bottom: clamp(1.1rem, 3.5vh, 1.75rem);
+  /* ---------- Portfolio wall ---------- */
+  .portfolio {
+    position: relative;
     z-index: 1;
-    font-size: 0.85rem;
-    color: var(--muted);
-    border-color: var(--rule);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: clamp(2.25rem, 6vh, 4rem) 0;
+    margin-top: clamp(1.5rem, 5vh, 3rem);
   }
+  .portfolio-label {
+    display: block;
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 800;
+    font-stretch: 125%;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+  }
+  .marquee {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  }
+  .marquee + .marquee { margin-top: 0.9rem; }
+  .track {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 0;
+    padding-right: 0;
+    white-space: nowrap;
+    will-change: transform;
+    animation: scroll 60s linear infinite;
+  }
+  .marquee--reverse .track { animation-direction: reverse; animation-duration: 74s; }
+  .marquee:hover .track { animation-play-state: paused; }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0 clamp(1.25rem, 3vw, 2.25rem);
+    font-size: clamp(1.15rem, 2.6vw, 1.65rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    transition: color 0.15s ease;
+  }
+  a.chip:hover { color: var(--accent); }
+  .chip .sep { color: var(--rule); font-weight: 400; }
+  .chip .status { width: 0.42rem; height: 0.42rem; border-radius: 50%; flex: none; }
+  .chip .status.available { background: var(--accent); box-shadow: 0 0 10px rgba(212, 245, 66, 0.6); }
+  .chip .status.sold { background: var(--rule); }
+  .chip.is-sold { color: var(--muted); }
 
+  /* ---------- What we do ---------- */
+  .about {
+    position: relative;
+    z-index: 1;
+    padding: clamp(3rem, 9vh, 6rem) var(--edge);
+    display: grid;
+    gap: clamp(1.75rem, 5vw, 3.5rem);
+    max-width: 68rem;
+    margin: 0 auto;
+  }
+  @media (min-width: 44rem) {
+    .about { grid-template-columns: 1fr 1fr; }
+  }
+  .about h2 {
+    margin: 0 0 0.6rem;
+    font-family: var(--display);
+    font-weight: 700;
+    font-stretch: 110%;
+    text-transform: uppercase;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+  .about p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    max-width: 44ch;
+    text-wrap: pretty;
+  }
+  .about .lead { color: var(--ink); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--rule);
+    padding: clamp(2rem, 5vh, 3rem) var(--edge) clamp(2.5rem, 6vh, 3.5rem);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .footer-mail {
+    font-family: var(--display);
+    font-weight: 700;
+    font-stretch: 110%;
+    font-size: clamp(1.15rem, 3.5vw, 1.75rem);
+    letter-spacing: -0.01em;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .footer-mail:hover { color: var(--accent); border-color: var(--accent); }
+  .footer-meta { display: flex; gap: 1.5rem; font-size: 0.85rem; color: var(--muted); }
+  .footer-meta a { border-bottom: 1px solid var(--rule-soft); padding-bottom: 1px; }
+  .footer-meta a:hover { color: var(--ink); }
+
+  /* ---------- Enquire dialog ---------- */
   .enquire-dialog {
     width: min(28rem, calc(100vw - 2.4rem));
     max-height: calc(100svh - 2.4rem);
     margin: auto;
-    padding: 1.5rem 1.45rem 1.35rem;
+    padding: 1.6rem 1.5rem 1.45rem;
     overflow: auto;
-    border: 1px solid rgba(212, 245, 66, 0.55);
+    border: 1px solid rgba(212, 245, 66, 0.5);
     background: var(--bg);
     color: var(--ink);
-    box-shadow: 0 0 18px rgba(212, 245, 66, 0.22);
+    box-shadow: 0 0 40px rgba(212, 245, 66, 0.12);
   }
-  .enquire-dialog::backdrop {
-    background:
-      radial-gradient(ellipse 70% 50% at 50% 40%, rgba(212, 245, 66, 0.08), transparent 55%),
-      rgba(8, 9, 12, 0.78);
-  }
-  .enquire-dialog[open] {
-    animation: enquire-in 180ms ease forwards;
-  }
-  .enquire-dialog[open]::backdrop {
-    animation: enquire-backdrop 180ms ease forwards;
-  }
-  @keyframes enquire-in {
-    from { opacity: 0; transform: scale(0.96); }
+  .enquire-dialog::backdrop { background: rgba(8, 9, 12, 0.72); backdrop-filter: blur(3px); }
+  .enquire-dialog[open] { animation: pop 0.18s ease forwards; }
+  @keyframes pop {
+    from { opacity: 0; transform: scale(0.97); }
     to { opacity: 1; transform: scale(1); }
   }
-  @keyframes enquire-backdrop {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
   .enquire-head {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 1rem;
-    margin: 0 0 1.15rem;
+    margin-bottom: 1.15rem;
   }
   .enquire-head h2 {
     margin: 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
+    font-family: var(--display);
+    font-weight: 800;
+    font-stretch: 125%;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
   }
   .enquire-close {
-    appearance: none;
-    -webkit-appearance: none;
     flex: none;
     width: 2rem;
     height: 2rem;
-    margin: -0.3rem -0.35rem 0 0;
+    margin: -0.35rem -0.4rem 0 0;
     padding: 0;
     border: 0;
     background: none;
     color: var(--muted);
-    font: inherit;
-    font-size: 1.45rem;
+    font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
   }
   .enquire-close:hover { color: var(--ink); }
-
-  .enquire-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-  }
-  .enquire-field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-  .enquire-field label {
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
+  .enquire-form { display: flex; flex-direction: column; gap: 0.85rem; }
+  .enquire-field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .enquire-field label { font-size: 0.85rem; color: var(--muted); }
   .enquire-field input,
   .enquire-field textarea {
     width: 100%;
@@ -380,116 +396,79 @@
     font-size: 1rem;
     border-radius: 0;
   }
-  .enquire-field textarea {
-    min-height: 6.5rem;
-    resize: vertical;
-  }
+  .enquire-field textarea { min-height: 6.5rem; resize: vertical; }
   .enquire-submit {
-    appearance: none;
-    -webkit-appearance: none;
     align-self: flex-start;
     margin-top: 0.25rem;
-    padding: 0.7rem 1.15rem;
+    padding: 0.7rem 1.3rem;
     border: 0;
     background: var(--accent);
     color: var(--bg);
     font: inherit;
     font-weight: 600;
-    letter-spacing: -0.01em;
     cursor: pointer;
   }
-  .enquire-submit:hover { filter: brightness(1.06); }
-
-  @media (max-width: 34rem) {
-    :root { --plan-h: clamp(160px, 34vh, 320px); }
-    body { padding: clamp(2.75rem, 9vh, 4rem) 1.35rem var(--plan-h); }
-    .mark { margin-bottom: 1.75rem; }
-    .body-text { max-width: none; }
-  }
-
-  @media (max-width: 22.5rem) {
-    :root { --plan-h: clamp(120px, 28vh, 260px); }
-    body { padding-left: 1.15rem; padding-right: 1.15rem; }
-    .mark { font-size: 2.15rem; margin-bottom: 1.35rem; }
-    .listing-name { font-size: 0.95rem; }
-  }
-
-  @media (max-height: 34rem) {
-    :root { --plan-h: clamp(72px, 22vh, 200px); }
-    body { padding-top: clamp(1.25rem, 6vh, 2rem); padding-bottom: var(--plan-h); }
-    .mark { margin-bottom: 1rem; }
-    .body-text { margin-bottom: 0.85rem; }
-    .llms-link { display: none; }
-  }
-
-  @media (min-width: 64rem) {
-    main { max-width: 56rem; }
-  }
+  .enquire-submit:hover { filter: brightness(1.07); }
 
   @media (prefers-reduced-motion: reduce) {
-    a,
-    .enquire-link { transition: none; }
-    .plot { animation: none; }
-    .enquire-dialog[open],
-    .enquire-dialog[open]::backdrop { animation: none; }
+    .statement .line > span,
+    .hero-sub,
+    .cta { animation: none; transform: none; opacity: 1; }
+    .track { animation: none; }
+    .enquire-dialog[open] { animation: none; }
   }
 </style>
 </head>
 <body>
-  <div class="plan-bg" aria-hidden="true">
-    <svg viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
-      <g class="grid">
-        <line x1="0"    y1="0" x2="0"    y2="480"/>
-        <line x1="120"  y1="0" x2="120"  y2="480"/>
-        <line x1="240"  y1="0" x2="240"  y2="480"/>
-        <line x1="360"  y1="0" x2="360"  y2="480"/>
-        <line x1="480"  y1="0" x2="480"  y2="480"/>
-        <line x1="600"  y1="0" x2="600"  y2="480"/>
-        <line x1="720"  y1="0" x2="720"  y2="480"/>
-        <line x1="840"  y1="0" x2="840"  y2="480"/>
-        <line x1="960"  y1="0" x2="960"  y2="480"/>
-        <line x1="1080" y1="0" x2="1080" y2="480"/>
-        <line x1="1200" y1="0" x2="1200" y2="480"/>
-        <line x1="0" y1="480" x2="1200" y2="480"/>
-        <line x1="0" y1="360" x2="1200" y2="360"/>
-        <line x1="0" y1="240" x2="1200" y2="240"/>
-        <line x1="0" y1="120" x2="1200" y2="120"/>
-      </g>
-      <g>
-        <rect class="plot plot-a" x="240" y="360" width="120" height="120"/>
-        <rect class="plot plot-b" x="600" y="240" width="240" height="120"/>
-        <rect class="plot plot-c" x="960" y="360" width="120" height="120"/>
-      </g>
-    </svg>
-  </div>
+  <header class="nav">
+    <a class="wordmark" href="/">Namefolio<span class="dot">.</span></a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <button type="button" data-enquire>Contact</button>
+    </nav>
+  </header>
 
   <main>
-    <p class="mark">Namefolio<span class="dot">.</span></p>
+    <section class="hero">
+      <h1 class="statement">
+        <span class="line"><span>Really good</span></span>
+        <span class="line"><span>.co.uk</span></span>
+        <span class="line"><span>domains<span class="dot">.</span></span></span>
+      </h1>
+      <p class="hero-sub">We buy and sell really good .co.uk assets — and run dedicated outbound sales when you need a portfolio moved.</p>
+      <button type="button" class="cta" data-enquire>Get in touch</button>
+    </section>
 
-    <h1 class="pitch">Really good <span class="nowrap">.co.uk</span> domains<span class="dot">.</span></h1>
-    <p class="body-text">We buy and sell really good .co.uk assets. Whether you're looking to buy a specific name or need dedicated outbound sales support for your own portfolio, we can help.</p>
-    <button type="button" class="enquire-link" aria-haspopup="dialog" aria-controls="enquire-dialog">Get in touch →</button>
+    <section class="portfolio" aria-label="Domain portfolio">
+      <span class="portfolio-label">The portfolio</span>
 
-    <div class="listings">
-      <h2 class="section">Current domains</h2>
-      <div class="pair">
-        <section>
-          <p class="listing-name">prototypeservices.co.uk</p>
-          <p class="listing-cat">Commercial / B2B</p>
-          <p class="listing-desc">A relevant name for a business operating in prototyping, product development, engineering or manufacturing.</p>
-          <p class="listing-status">Available</p>
-        </section>
-        <section>
-          <p class="listing-name">miniatureshop.co.uk</p>
-          <p class="listing-cat">E-commerce / Retail</p>
-          <p class="listing-desc">A clear, memorable name suited to a specialist online retailer selling miniatures, models or collectibles.</p>
-          <p class="listing-status">Available</p>
-        </section>
+      <div class="marquee" aria-hidden="true">
+        <div class="track" data-row="1"></div>
       </div>
-    </div>
+      <div class="marquee marquee--reverse" aria-hidden="true">
+        <div class="track" data-row="2"></div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div>
+        <h2>Buy a name</h2>
+        <p class="lead">Clean, keyword-strong .co.uk domains suited to real businesses. If a name fits what you're building, it's yours to acquire.</p>
+      </div>
+      <div>
+        <h2>Move a portfolio</h2>
+        <p>Sitting on names you'd rather sell? We run dedicated outbound sales to put them in front of the right buyers.</p>
+      </div>
+    </section>
   </main>
 
-  <a class="llms-link" href="/llms.txt">llms.txt</a>
+  <footer>
+    <a class="footer-mail" href="mailto:hello@namefolio.co">hello@namefolio.co</a>
+    <div class="footer-meta">
+      <span>Namefolio — .co.uk domains</span>
+      <a href="/llms.txt">llms.txt</a>
+    </div>
+  </footer>
 
   <dialog class="enquire-dialog" id="enquire-dialog" aria-labelledby="enquire-title">
     <div class="enquire-head">
@@ -499,7 +478,7 @@
     <form class="enquire-form" id="enquire-form">
       <div class="enquire-field">
         <label for="enquire-name">Name</label>
-        <input id="enquire-name" name="name" type="text" autocomplete="name" required autofocus>
+        <input id="enquire-name" name="name" type="text" autocomplete="name" required>
       </div>
       <div class="enquire-field">
         <label for="enquire-email">Email</label>
@@ -514,14 +493,63 @@
   </dialog>
 
   <script>
+    /* ---------------------------------------------------------------
+       PORTFOLIO — your inventory.
+       status: 'available' | 'sold' (drop status to leave it plain)
+       Available names become clickable chips that open the enquiry form.
+       --------------------------------------------------------------- */
+    var DOMAINS = [
+      { name: 'outdoorsurvival.co.uk', status: 'available' },
+      { name: 'cyberfleet.co.uk', status: 'available' },
+      { name: 'nomadcamping.co.uk', status: 'available' },
+      { name: 'valuestorage.co.uk', status: 'available' },
+      { name: 'prototypeservices.co.uk', status: 'available' },
+      { name: 'antiquebuyer.co.uk', status: 'available' }
+    ];
+
+    (function () {
+      function chip(d) {
+        var a = document.createElement(d.status === 'available' ? 'a' : 'span');
+        a.className = 'chip' + (d.status === 'sold' ? ' is-sold' : '');
+        if (d.status === 'available') {
+          a.href = '#';
+          a.setAttribute('data-enquire', '');
+        }
+        var html = '';
+        if (d.status) html += '<span class="status ' + d.status + '"></span>';
+        html += d.name + '<span class="sep">/</span>';
+        a.innerHTML = html;
+        return a;
+      }
+
+      function fill(track, list) {
+        // duplicate the list so the -50% scroll loops seamlessly
+        var doubled = list.concat(list);
+        doubled.forEach(function (d) { track.appendChild(chip(d)); });
+      }
+
+      var row1 = document.querySelector('[data-row="1"]');
+      var row2 = document.querySelector('[data-row="2"]');
+
+      // offset the second row so the two lines don't march in lockstep
+      var half = Math.ceil(DOMAINS.length / 2);
+      fill(row1, DOMAINS);
+      fill(row2, DOMAINS.slice(half).concat(DOMAINS.slice(0, half)));
+    })();
+
+    /* ---------- Enquire dialog ---------- */
     (function () {
       var dialog = document.getElementById('enquire-dialog');
-      var openBtn = document.querySelector('.enquire-link');
       var closeBtn = dialog.querySelector('.enquire-close');
       var form = document.getElementById('enquire-form');
 
-      openBtn.addEventListener('click', function () {
-        dialog.showModal();
+      document.addEventListener('click', function (e) {
+        var trigger = e.target.closest('[data-enquire]');
+        if (trigger) {
+          e.preventDefault();
+          if (typeof dialog.showModal === 'function') dialog.showModal();
+          return;
+        }
       });
 
       closeBtn.addEventListener('click', function () {
@@ -545,10 +573,9 @@
         var message = document.getElementById('enquire-message').value.trim();
         if (!name || !email || !message) return;
 
-        var subject = encodeURIComponent('Acquisition enquiry from ' + name);
+        var subject = encodeURIComponent('Enquiry from ' + name);
         var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
-        var href = 'mailto:hello@namefolio.co?subject=' + subject + '&body=' + body;
-        window.location.href = href;
+        window.location.href = 'mailto:hello@namefolio.co?subject=' + subject + '&body=' + body;
         dialog.close();
       });
     })();
