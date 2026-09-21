@@ -197,7 +197,7 @@
   .cta:hover { filter: brightness(1.08); }
   .cta:active { transform: translateY(1px); }
 
-  /* ---------- Portfolio wall ---------- */
+  /* ---------- Portfolio marquee ---------- */
   .portfolio {
     position: relative;
     z-index: 1;
@@ -396,6 +396,7 @@
   }
   .enquire-submit:hover { filter: brightness(1.07); }
 
+  /* ---------- Small screens ---------- */
   @media (max-width: 44rem) {
     .hero { padding-bottom: clamp(1rem, 3svh, 1.75rem); }
     .portfolio { margin-top: clamp(0.5rem, 2svh, 1rem); padding: clamp(0.85rem, 3svh, 1.5rem) 0; }
@@ -403,6 +404,7 @@
     .about { padding-top: calc(clamp(1rem, 3svh, 1.75rem) + clamp(0.5rem, 2svh, 1rem)); }
   }
 
+  /* ---------- Short viewports ---------- */
   @media (max-height: 28rem) {
     .statement { font-size: clamp(1.6rem, 9vw, 3.5rem); }
     .hero { padding-top: clamp(0.6rem, 4svh, 1.25rem); padding-bottom: clamp(0.4rem, 1.5svh, 0.75rem); }
@@ -412,6 +414,7 @@
     .about { padding-top: calc(clamp(0.4rem, 1.5svh, 0.75rem) + clamp(0.2rem, 0.75svh, 0.4rem)); }
   }
 
+  /* ---------- Reduced motion ---------- */
   @media (prefers-reduced-motion: reduce) {
     .statement .line > span,
     .cta { animation: none; transform: none; opacity: 1; }
@@ -435,7 +438,7 @@
       <button type="button" class="cta" data-enquire>Get in touch</button>
     </section>
 
-    <section class="portfolio" aria-label="Domains">
+    <section class="portfolio" aria-label="The domains">
       <span class="portfolio-label">The domains</span>
 
       <div class="marquee" aria-hidden="true">
@@ -544,7 +547,6 @@
         if (trigger) {
           e.preventDefault();
           if (typeof dialog.showModal === 'function') dialog.showModal();
-          return;
         }
       });
 
@@ -553,13 +555,7 @@
       });
 
       dialog.addEventListener('click', function (event) {
-        var box = dialog.getBoundingClientRect();
-        var inside =
-          event.clientX >= box.left &&
-          event.clientX <= box.right &&
-          event.clientY >= box.top &&
-          event.clientY <= box.bottom;
-        if (!inside) dialog.close();
+        if (event.target === dialog) dialog.close();
       });
 
       form.addEventListener('submit', function (event) {
