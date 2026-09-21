@@ -137,7 +137,7 @@
   .hero {
     position: relative;
     z-index: 1;
-    padding: clamp(3rem, 12vh, 8rem) var(--edge) clamp(2.5rem, 8vh, 5rem);
+    padding: clamp(2rem, 8svh, 4.5rem) var(--edge) clamp(0.75rem, 3svh, 2rem);
     text-align: center;
   }
   .statement {
@@ -148,7 +148,7 @@
     text-transform: uppercase;
     letter-spacing: -0.015em;
     line-height: 0.88;
-    font-size: clamp(3.1rem, 13.5vw, 12rem);
+    font-size: clamp(3rem, 13.5vw, 7rem);
   }
   .statement .line { display: block; overflow: hidden; }
   .statement .line > span {
@@ -176,7 +176,7 @@
 
   .cta {
     display: inline-block;
-    margin-top: clamp(1.5rem, 4vh, 2.25rem);
+    margin-top: clamp(0.75rem, 2.5svh, 1.5rem);
     padding: 0.85rem 1.6rem;
     background: var(--accent);
     color: var(--bg);
@@ -199,8 +199,8 @@
     z-index: 1;
     border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
-    padding: clamp(2.25rem, 6vh, 4rem) 0;
-    margin-top: clamp(1.5rem, 5vh, 3rem);
+    padding: clamp(1rem, 3.5svh, 2rem) 0;
+    margin-top: clamp(0.5rem, 2.5svh, 1.25rem);
   }
   .portfolio-label {
     display: block;
@@ -212,7 +212,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.18em;
     color: var(--muted);
-    margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+    margin-bottom: clamp(0.5rem, 2svh, 1.25rem);
   }
   .marquee {
     position: relative;
@@ -390,6 +390,14 @@
     cursor: pointer;
   }
   .enquire-submit:hover { filter: brightness(1.07); }
+
+  @media (max-height: 28rem) {
+    .statement { font-size: clamp(1.6rem, 9vw, 3.5rem); }
+    .hero { padding-top: clamp(0.6rem, 4svh, 1.25rem); padding-bottom: clamp(0.4rem, 1.5svh, 0.75rem); }
+    .cta { margin-top: clamp(0.4rem, 1.25svh, 0.75rem); }
+    .portfolio { margin-top: clamp(0.2rem, 0.75svh, 0.4rem); padding: clamp(0.4rem, 1.25svh, 0.7rem) 0; }
+    .portfolio-label { margin-bottom: clamp(0.2rem, 0.75svh, 0.4rem); }
+  }
 
   @media (prefers-reduced-motion: reduce) {
     .statement .line > span,
